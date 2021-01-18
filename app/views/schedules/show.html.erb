@@ -1,0 +1,32 @@
+<h2>スケジュール詳細</h2>
+
+<table>
+    <tr>
+        <th>タイトル</th>
+        <td><%= @schedule.title %></td>
+    </tr>
+    <tr>
+        <th>開始日時</th>
+        <td><%= @schedule.start_at.to_s(:datetime_jp) %></td>
+    </tr>
+    <tr>
+        <th>終了日時</th>
+        <td><%= @schedule.end_at.to_s(:datetime_jp) %></td>
+    </tr>
+    <tr>
+        <th>終日</th>
+        <td><%= allday(@schedule.all_day) %></td>
+    </tr>
+    <tr>
+        <th>スケジュールメモ</th>
+        <td><%= @schedule.memo %></td>
+    </tr>
+</table>
+
+<div clsss="link_list">
+    <ul>
+        <li><%= link_to "スケジュール一覧に戻る", :schedules %></li>
+        <li><%= link_to "編集", [:edit, @schedule] %></li>
+        <li><%= link_to "削除", @schedule, method: :delete, data: { confirm: "本当に削除しますか？" } %></li>
+    </ul>
+</div>
